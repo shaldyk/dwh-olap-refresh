@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DWH & OLAP Knowledge Base 2026</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --accent: #3498db;
+            --bg: #f4f7f6;
+            --text: #333;
+        }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: var(--text); background: var(--bg); margin: 0; display: flex; }
+        nav { width: 250px; background: var(--primary); color: white; height: 100vh; position: fixed; padding: 20px; box-sizing: border-box; }
+        nav h2 { font-size: 1.2rem; border-bottom: 1px solid #555; padding-bottom: 10px; }
+        nav ul { list-style: none; padding: 0; }
+        nav ul li { margin: 15px 0; }
+        nav ul li a { color: #bdc3c7; text-decoration: none; transition: 0.3s; }
+        nav ul li a:hover { color: white; padding-left: 5px; }
+        main { margin-left: 250px; padding: 40px; max-width: 900px; }
+        .card { background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); margin-bottom: 30px; }
+        h1 { color: var(--primary); }
+        h2 { color: var(--accent); border-left: 5px solid var(--accent); padding-left: 15px; }
+        .tag { display: inline-block; background: #e1f5fe; color: #0288d1; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; font-weight: bold; margin-bottom: 10px; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { text-align: left; padding: 12px; border-bottom: 1px solid #ddd; }
+        th { background: #f8f9fa; }
+    </style>
+</head>
+<body>
+
+<nav>
+    <h2>KB Navigator</h2>
+    <ul>
+        <li><a href="#arch">1. Architecture</a></li>
+        <li><a href="#olap">2. OLAP Mechanics</a></li>
+        <li><a href="#trends">3. Modern Trends</a></li>
+        <li><a href="#links">4. Tool Documentation</a></li>
+    </ul>
+</nav>
+
+<main>
+    <h1>DWH & OLAP Professional Refresh 🚀</h1>
+    <p>A high-level guide designed for experienced practitioners to brush up on core concepts and 2026 industry shifts.</p>
+
+    <section id="arch" class="card">
+        <h2>1. Architectural Foundations 📐</h2>
+        <div class="tag">CORE DESIGN</div>
+        <p>Modern DWH design has moved from strict physical servers to <strong>Elastic Cloud Warehouses</strong>. The primary goal is decoupling storage from compute to allow massive scale.</p>
+        
+        <h3>Kimball vs. Inmon</h3>
+        <ul>
+            <li><strong>Kimball (Bottom-Up):</strong> Focuses on <em>Dimensional Modeling</em>. Data is organized into Stars/Snowflakes that represent business processes. It's the standard for BI because it's intuitive for users.</li>
+            <li><strong>Inmon (Top-Down):</strong> Focuses on <em>Data Integrity</em>. Data is stored in 3rd Normal Form (3NF) in a central repository. It serves as a robust "back-room" for consistent data delivery to marts.</li>
+        </ul>
+
+        <h3>ELT over ETL</h3>
+        <p>In 2026, we don't transform data <em>before</em> it hits the warehouse. We extract raw data, load it into a <strong>Data Lakehouse</strong>, and use SQL/Python engines (like dbt or Spark) to transform it in place.</p>
+    </section>
+
+    <section id="olap" class="card">
+        <h2>2. OLAP: Multidimensional Reality 🧊</h2>
+        <div class="tag">ANALYSIS ENGINE</div>
+        <p>OLAP isn't just about cubes anymore; it's about the <strong>Semantic Layer</strong>—the logic that sits between raw data and the end-user tool.</p>
+        
+        <table>
+            <tr>
+                <th>Type</th>
+                <th>Explanation</th>
+                <th>Best For</th>
+            </tr>
+            <tr>
+                <td><strong>MOLAP</strong></td>
+                <td>Data is pre-aggregated into a physical cube.</td>
+                <td>Sub-second response on predictable queries.</td>
+            </tr>
+            <tr>
+                <td><strong>ROLAP</strong></td>
+                <td>Queries are translated to SQL against the DB in real-time.</td>
+                <td>Massive datasets and real-time drill-through.</td>
+            </tr>
+        </table>
+
+        <h3>The 5 Core Operations</h3>
+        <ul>
+            <li><strong>Roll-up:</strong> Move from detail to summary (e.g., Day &rarr; Year).</li>
+            <li><strong>Drill-down:</strong> Move from summary to detail (e.g., Region &rarr; Store).</li>
+            <li><strong>Slice:</strong> Filter by one dimension (e.g., "Only 2024 data").</li>
+            <li><strong>Dice:</strong> Filter by multiple dimensions (e.g., "Shoes" in "Paris").</li>
+            <li><strong>Pivot:</strong> Rotate the axes to see data from a different perspective.</li>
+        </ul>
+    </section>
+
+    <section id="trends" class="card">
+        <h2>3. 2026 Trends & Modern Aspects 🌟</h2>
+        <div class="tag">FUTURE PROOFING</div>
+        
+        <h3>Data Lakehouse 🏠</h3>
+        <p>Combining the structure and ACID transactions of a DWH with the cheap, open storage of a Data Lake (using <strong>Apache Iceberg</strong> or <strong>Delta Lake</strong>). This eliminates data silos.</p>
+
+        <h3>Headless BI (The Semantic Layer) 🧠</h3>
+        <p>Instead of defining "Profit" inside PowerBI and again in Tableau, you define it once in code (using <strong>dbt</strong> or <strong>MetricFlow</strong>). The BI tools then consume this "single source of truth" via API.</p>
+
+        <h3>Data Mesh 🕸️</h3>
+        <p>A shift from "Central IT" to decentralized ownership. The Finance team owns the Finance Data Product; the Marketing team owns the Marketing Data Product. They are connected by a shared infrastructure.</p>
+    </section>
+
+    <section id="links" class="card">
+        <h2>4. Key Documentation Links 🔗</h2>
+        <ul>
+            <li><a href="https://docs.getdbt.com/docs/introduction" target="_blank">dbt Documentation</a> (The standard for modern ELT modeling)</li>
+            <li><a href="https://docs.snowflake.com/en/" target="_blank">Snowflake Guides</a> (Cloud Architecture)</li>
+            <li><a href="https://iceberg.apache.org/docs/latest/" target="_blank">Apache Iceberg</a> (Modern Table Formats)</li>
+        </ul>
+    </section>
+</main>
+
+</body>
+</html>
