@@ -4,47 +4,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DWH & OLAP Knowledge Base 2026</title>
+    <title>DWH & OLAP | Knowledge Roadmap</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --primary: #2c3e50;
-            --accent: #3498db;
-            --bg: #f4f7f6;
-            --text: #333;
-            --white: #ffffff;
+            --primary-dark: #1a202c;
+            --primary-blue: #3182ce;
+            --bg-gray: #f7fafc;
+            --card-white: #ffffff;
+            --text-main: #2d3748;
+            --text-muted: #718096;
+            --border-color: #e2e8f0;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--text);
-            background: var(--bg);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-gray);
+            color: var(--text-main);
             margin: 0;
             display: flex;
         }
 
-        /* Sticky Sidebar */
+        /* Sidebar Navigation */
         nav {
-            width: 260px;
-            background: var(--primary);
-            color: var(--white);
+            width: 280px;
+            background: var(--primary-dark);
             height: 100vh;
             position: fixed;
-            top: 0;
-            left: 0;
-            padding: 30px 20px;
+            color: white;
+            padding: 40px 20px;
             box-sizing: border-box;
             overflow-y: auto;
-            border-right: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         nav h2 {
-            font-size: 1.1rem;
+            font-size: 0.85rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-            padding-bottom: 15px;
-            margin-bottom: 20px;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            margin-bottom: 25px;
+            border-bottom: 1px solid #2d3748;
+            padding-bottom: 10px;
         }
 
         nav ul {
@@ -53,121 +53,167 @@
         }
 
         nav ul li {
-            margin: 18px 0;
+            margin-bottom: 12px;
         }
 
         nav ul li a {
-            color: #bdc3c7;
+            color: #cbd5e0;
             text-decoration: none;
-            transition: 0.3s;
             font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+
+        nav ul li a i {
+            margin-right: 12px;
+            width: 20px;
+            text-align: center;
         }
 
         nav ul li a:hover {
-            color: var(--white);
-            padding-left: 8px;
+            background: #2d3748;
+            color: white;
         }
 
-        /* Main Content */
+        /* Main Content Area */
         main {
-            margin-left: 260px;
-            padding: 50px;
-            max-width: 900px;
+            margin-left: 280px;
+            padding: 60px;
+            max-width: 1000px;
             width: 100%;
         }
 
-        .card {
-            background: var(--white);
-            padding: 35px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-            margin-bottom: 40px;
+        header {
+            margin-bottom: 50px;
         }
 
-        h1 {
-            color: var(--primary);
-            font-size: 2.2rem;
-            margin-bottom: 10px;
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+            margin: 0;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-top: 10px;
+        }
+
+        /* Roadmap Cards */
+        .module-card {
+            background: var(--card-white);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 35px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+
+        .module-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--primary-blue);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background: #ebf8ff;
+            color: #2b6cb0;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-transform: uppercase;
         }
 
         h2 {
-            color: var(--accent);
-            border-left: 6px solid var(--accent);
-            padding-left: 20px;
+            font-size: 1.5rem;
             margin-top: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        h2 i {
+            margin-right: 15px;
+            color: var(--primary-blue);
         }
 
         h3 {
-            color: var(--primary);
+            font-size: 1.1rem;
+            color: var(--primary-dark);
             margin-top: 25px;
+            border-bottom: 2px solid var(--bg-gray);
+            padding-bottom: 8px;
         }
 
-        .tag {
-            display: inline-block;
-            background: #e1f5fe;
-            color: #0288d1;
-            padding: 4px 12px;
-            border-radius: 6px;
-            font-size: 0.75rem;
+        ul.topics {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul.topics li {
+            padding: 8px 0;
+            border-bottom: 1px solid #f7fafc;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        ul.topics li::before {
+            content: "•";
+            color: var(--primary-blue);
             font-weight: bold;
-            margin-bottom: 20px;
-            text-transform: uppercase;
+            margin-right: 10px;
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
-            margin: 25px 0;
-            font-size: 0.95rem;
-        }
-
-        th,
-        td {
-            text-align: left;
-            padding: 15px;
-            border-bottom: 1px solid #eee;
+            margin: 20px 0;
+            font-size: 0.9rem;
         }
 
         th {
-            background: #f9fafb;
-            font-weight: 600;
-            color: var(--primary);
+            text-align: left;
+            padding: 12px;
+            background: var(--bg-gray);
+            color: var(--text-muted);
+            border-bottom: 2px solid var(--border-color);
         }
 
-        /* Navigation Button */
+        td {
+            padding: 12px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
         #backToTop {
             position: fixed;
             bottom: 30px;
             right: 30px;
-            background: var(--accent);
-            color: var(--white);
-            border: none;
+            background: var(--primary-dark);
+            color: white;
             padding: 12px 20px;
-            border-radius: 30px;
-            cursor: pointer;
+            border-radius: 8px;
             text-decoration: none;
             font-size: 0.85rem;
-            font-weight: bold;
-            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
-            transition: all 0.3s ease;
-        }
-
-        #backToTop:hover {
-            background: var(--primary);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(44, 62, 80, 0.3);
-        }
-
-        code {
-            background: #f0f0f0;
-            padding: 2px 5px;
-            border-radius: 4px;
-            font-family: monospace;
-        }
-
-        .highlight {
-            color: var(--accent);
             font-weight: 600;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                width: 0;
+                display: none;
+            }
+
+            main {
+                margin-left: 0;
+                padding: 30px;
+            }
         }
     </style>
 </head>
@@ -175,154 +221,116 @@
 <body>
 
     <nav>
-        <h2>Refresh Navigator</h2>
+        <h2>Roadmap Modules</h2>
         <ul>
-            <li><a href="#arch">1. Core Architecture</a></li>
-            <li><a href="#olap">2. OLAP Mechanics</a></li>
-            <li><a href="#trends">3. Modern Trends 2026</a></li>
-            <li><a href="#advanced">4. Advanced Engineering</a></li>
-            <li><a href="#links">5. External Resources</a></li>
+            <li><a href="#foundations"><i class="fas fa-layer-group"></i> Foundations</a></li>
+            <li><a href="#olap"><i class="fas fa-cube"></i> OLAP Mechanics</a></li>
+            <li><a href="#modern"><i class="fas fa-rocket"></i> Modern Trends</a></li>
+            <li><a href="#advanced"><i class="fas fa-microchip"></i> Advanced Patterns</a></li>
+            <li><a href="#resources"><i class="fas fa-book-open"></i> Resources</a></li>
         </ul>
     </nav>
 
     <main>
-        <h1>DWH & OLAP: Professional Refresh 🚀</h1>
-        <p style="color: #666; font-size: 1.1rem; margin-bottom: 40px;">A senior-level knowledge base designed for a
-            15-minute conceptual update.</p>
+        <header>
+            <h1>DWH & OLAP Refresh</h1>
+            <p>A structured technical roadmap for the modern data ecosystem.</p>
+        </header>
 
-        <section id="arch" class="card">
-            <h2>1. Architectural Foundations 📐</h2>
-            <div class="tag">Design Philosophies</div>
-            <p>Modern architecture prioritizes <span class="highlight">decoupling storage from compute</span>. This
-                allows for elastic scaling without migrating physical data.</p>
+        <section id="foundations" class="module-card">
+            <span class="badge">Module 1</span>
+            <h2><i class="fas fa-university"></i> Architectural Foundations</h2>
+            <p>Core methodologies for data organization and delivery.</p>
 
             <h3>Kimball vs. Inmon</h3>
-            <ul>
-                <li><strong>Kimball (Bottom-Up):</strong> Organizes data into <strong>Dimensional Models</strong>
-                    (Star/Snowflake). It is highly optimized for query speed and user accessibility. It remains the
-                    industry standard for BI.</li>
-                <li><strong>Inmon (Top-Down):</strong> Organizes data into a centralized <strong>Normalized
-                        (3NF)</strong> repository. It acts as a robust "Single Source of Truth" (SSOT) that ensures high
-                    data integrity across all downstream marts.</li>
+            <ul class="topics">
+                <li><strong>Kimball:</strong> Dimensional Modeling focusing on query performance and usability.</li>
+                <li><strong>Inmon:</strong> Normalized (3NF) central repository focusing on data integrity.</li>
             </ul>
 
-            <h3>The ELT Paradigm</h3>
-            <p>In the cloud era, we use <strong>ELT</strong>. We load raw data directly into the warehouse and use its
-                massive parallel processing (MPP) power to perform transformations using SQL or Python (e.g., via
-                <code>dbt</code> or <code>Spark</code>).
-            </p>
+            <h3>Modern Data Loading</h3>
+            <p>The transition from <strong>ETL</strong> to <strong>ELT</strong> allows the use of cloud-native compute
+                (Snowflake, BigQuery) to transform data after loading, maximizing scalability.</p>
         </section>
 
-        <section id="olap" class="card">
-            <h2>2. OLAP: Multidimensional Reality 🧊</h2>
-            <div class="tag">Short Reference</div>
-            <p>OLAP engines provide the logic required to analyze data across multiple dimensions (Time, Geography,
-                Product) simultaneously.</p>
+        <section id="olap" class="module-card">
+            <span class="badge">Module 2</span>
+            <h2><i class="fas fa-th-large"></i> OLAP Mechanics</h2>
+            <p>Logical operations for multidimensional data analysis.</p>
 
             <table>
-                <thead>
-                    <tr>
-                        <th>Storage Mode</th>
-                        <th>Mechanism</th>
-                        <th>Optimal Use Case</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>MOLAP</strong></td>
-                        <td>Pre-calculated data cubes.</td>
-                        <td>High-speed access to static, predictable metrics.</td>
-                    </tr>
-                    <tr>
-                        <td><strong>ROLAP</strong></td>
-                        <td>Dynamic SQL against relational tables.</td>
-                        <td>Real-time analysis on high-volume, granular data.</td>
-                    </tr>
-                    <tr>
-                        <td><strong>HOLAP</strong></td>
-                        <td>Hybrid approach.</td>
-                        <td>MOLAP for summaries; ROLAP for deep-dive detail.</td>
-                    </tr>
-                </tbody>
+                <tr>
+                    <th>Mode</th>
+                    <th>Operation</th>
+                    <th>Best For</th>
+                </tr>
+                <tr>
+                    <td><strong>MOLAP</strong></td>
+                    <td>Multidimensional (Cubes)</td>
+                    <td>Aggregated high-speed access.</td>
+                </tr>
+                <tr>
+                    <td><strong>ROLAP</strong></td>
+                    <td>Relational (Live SQL)</td>
+                    <td>Granular, real-time drill-through.</td>
+                </tr>
             </table>
 
-            <h3>Standard Operations</h3>
-            <p>Visualizing the data cube through five core actions:</p>
-            <ul>
-                <li><strong>Roll-up:</strong> Summarizing (e.g., moving from <em>City</em> to <em>Country</em>).</li>
-                <li><strong>Drill-down:</strong> Increasing detail (e.g., moving from <em>Year</em> to <em>Month</em>).
-                </li>
-                <li><strong>Slice:</strong> Selecting a single dimension (e.g., "Only Sales for 2026").</li>
-                <li><strong>Dice:</strong> Selecting a sub-cube (e.g., "Shoes in Israel during Q1").</li>
-                <li><strong>Pivot:</strong> Rotating the axes to change the analytical perspective.</li>
+            <h3>The 5 Core Operations</h3>
+            <ul class="topics">
+                <li><strong>Roll-up / Drill-down:</strong> Changing levels of granularity (e.g., Year vs. Month).</li>
+                <li><strong>Slice / Dice:</strong> Selecting specific dimensions or sub-cubes.</li>
+                <li><strong>Pivot:</strong> Rotating data for a different analytical perspective.</li>
             </ul>
         </section>
 
-        <section id="trends" class="card">
-            <h2>3. Modern Trends (2026) 🌟</h2>
-            <div class="tag">Strategic Shifts</div>
+        <section id="modern" class="module-card">
+            <span class="badge">Module 3</span>
+            <h2><i class="fas fa-cloud"></i> Modern Trends (2026)</h2>
+            <p>Current industry shifts toward decentralization and efficiency.</p>
 
-            <h3>The Data Lakehouse 🏠</h3>
-            <p>The Lakehouse architecture merges the low cost of a <strong>Data Lake</strong> with the performance and
-                ACID transactions (Atomicity, Consistency, Isolation, Durability) of a <strong>Data Warehouse</strong>.
-                By using open table formats like <code>Apache Iceberg</code>, you avoid vendor lock-in while maintaining
-                DWH-level speed.</p>
+            <h3>The Data Lakehouse</h3>
+            <p>Unifying the <strong>Data Lake</strong> (cost-effective storage) and <strong>Data Warehouse</strong>
+                (performance/ACID) using open table formats like <strong>Apache Iceberg</strong>.</p>
 
-            <h3>Headless BI (Semantic Layer) 🧠</h3>
-            <p>Instead of defining business logic (like "Active Users") inside individual BI tools, you define it once
-                in a <strong>Semantic Layer</strong> (e.g., <code>dbt MetricFlow</code> or <code>Cube</code>). This
-                ensures that whether you use Power BI, Tableau, or a Python notebook, the numbers are identical.</p>
 
-            <h3>Data Mesh 🕸️</h3>
-            <p>A shift from centralized data teams to <strong>Domain-Driven Ownership</strong>. Business units (like
-                Marketing or Finance) own their data as a "Product," providing it to the rest of the company via
-                standardized APIs or shared catalogs.</p>
+            <h3>Semantic Layers & Mesh</h3>
+            <ul class="topics">
+                <li><strong>Headless BI:</strong> Centralized metrics logic (dbt/Cube) consumed by any BI tool.</li>
+                <li><strong>Data Mesh:</strong> Decentralized ownership where domains own their data products.</li>
+            </ul>
         </section>
 
-        <section id="advanced" class="card">
-            <h2>4. Advanced Engineering Patterns 🛠️</h2>
-            <div class="tag">Senior Engineering</div>
+        <section id="advanced" class="module-card">
+            <span class="badge">Module 4</span>
+            <h2><i class="fas fa-tools"></i> Advanced Engineering</h2>
+            <p>Senior-level patterns for reliability and governance.</p>
 
             <h3>The Medallion Architecture</h3>
-            <p>A data governance pattern that provides structure and lineage to the Lakehouse:</p>
-            <ul>
-                <li><strong>Bronze (Raw) 🥉:</strong> The landing zone. High-fidelity, immutable data exactly as it
-                    arrived from the source.</li>
-                <li><strong>Silver (Validated) 🥈:</strong> The "Integration" layer. Data is cleaned, standardized, and
-                    joined. This is where cross-domain consistency is established.</li>
-                <li><strong>Gold (Curated) 🥇:</strong> The "Reporting" layer. Data is modeled into final aggregates or
-                    Star Schemas for specific business use cases.</li>
+            <ul class="topics">
+                <li><strong>Bronze 🥉:</strong> Raw landing zone (Immutable).</li>
+                <li><strong>Silver 🥈:</strong> Cleaned and integrated (The Truth).</li>
+                <li><strong>Gold 🥇:</strong> Curated reporting layer (Business-ready).</li>
             </ul>
+
 
             <h3>Slowly Changing Dimensions (SCDs)</h3>
-            <p>Crucial for maintaining historical accuracy in reporting:</p>
-            <ul>
-                <li><strong>Type 1:</strong> Overwrites existing data. No history is kept.</li>
-                <li><strong>Type 2:</strong> Adds a new record with <code>start_date</code> and <code>end_date</code>.
-                    The industry standard for full history tracking.</li>
-                <li><strong>Type 4:</strong> Maintains the current state in one table and moves historical changes to a
-                    dedicated "History" table.</li>
-            </ul>
+            <p>Managing historical accuracy. <strong>Type 2</strong> is the standard for tracking history by adding new
+                records with effective dates.</p>
 
-            <h3>Data Contracts</h3>
-            <p>A proactive agreement between data producers (source systems) and consumers (DWH). It defines the schema,
-                metadata, and quality requirements, preventing "silent failures" when source systems change.</p>
         </section>
 
-        <section id="links" class="card">
-            <h2>5. Key Resources 🔗</h2>
-            <ul>
-                <li><a href="https://docs.getdbt.com/" target="_blank">dbt Documentation</a> - Modern ELT and Modeling
-                </li>
-                <li><a href="https://docs.snowflake.com/" target="_blank">Snowflake Guides</a> - Cloud-native
-                    Architecture</li>
-                <li><a href="https://iceberg.apache.org/" target="_blank">Apache Iceberg</a> - Modern Table Formats</li>
-                <li><a href="https://www.databricks.com/glossary/medallion-architecture" target="_blank">Medallion
-                        Patterns</a> - Lakehouse Governance</li>
+        <section id="resources" class="module-card">
+            <span class="badge">Appendix</span>
+            <h2><i class="fas fa-link"></i> External Resources</h2>
+            <ul class="topics">
+                <li><a href="https://docs.getdbt.com/" target="_blank">dbt Documentation</a></li>
+                <li><a href="https://docs.snowflake.com/" target="_blank">Snowflake Guides</a></li>
+                <li><a href="https://iceberg.apache.org/" target="_blank">Apache Iceberg</a></li>
             </ul>
         </section>
 
-        <a href="#" id="backToTop">↑ Back to Top</a>
+        <a href="#" id="backToTop">Back to Top</a>
     </main>
 
 </body>
